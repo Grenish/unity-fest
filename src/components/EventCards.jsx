@@ -1,5 +1,10 @@
 import React from "react";
 import { esports, coding, photography, cultural, art, sports } from "../assets";
+import { baffle } from "baffle";
+
+import { motion } from "framer-motion";
+import { fadeIn, textVariant } from "../utils/motion";
+import { SectionWrapper } from "../hoc";
 
 const EventCards = () => {
   const eventsName = [
@@ -42,35 +47,52 @@ const EventCards = () => {
   ];
 
   return (
-    <div className="px-9 sm:px-36">
-      <div className="text-5xl font-pop font-semibold">Events</div>
-      <div className="flex flex-wrap">
-        {eventsName.map((events) => (
-          <div
-            key={events.id}
-            className="custom-hover transition ease-in-out max-w-md mx-auto bg-blackPrimary rounded-xl shadow-md overflow-hidden md:max-w-2xl m-4"
-          >
-            <div className="md:flex">
-              <div className="md:flex-shrink-0">
-                <img
-                  className="h-48 w-full object-cover md:w-48"
-                  src={events.imgUrl}
-                  alt="esports game"
-                />
-              </div>
-              <div className="p-8">
-                <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-                  {events.name}
+    <div
+      className="relative"
+    >
+      <div className="">
+        <motion.div
+          variants={textVariant()}
+          className="text-5xl font-des font-semibold px-9 sm:px-16 mb-4"
+        >
+          Events
+        </motion.div>
+        <motion.div
+          className="flex flex-wrap"
+          variants={fadeIn("", "", 0.1, 1)}
+        >
+          {eventsName.map((events, index) => (
+            <motion.div
+              key={events.id}
+              className="custom-hover relative transition ease-in-out max-w-md mx-auto bg-blackPrimary rounded-xl shadow-md overflow-hidden md:max-w-2xl m-4"
+              variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+            >
+              <div className="md:flex">
+                <div className="md:flex-shrink-0">
+                  <img
+                    className="h-48 w-full object-cover md:w-48"
+                    src={events.imgUrl}
+                    alt={events.name}
+                  />
                 </div>
-                <p className="mt-2 text-gray-500">{events.desc}</p>
-                <button className="bg-gray-500 p-2 rounded-xl">Know More</button>
+                <div className="p-8">
+                  <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+                    {events.name}
+                  </div>
+                  <p className="mt-2 text-gray-500">{events.desc}</p>
+                  <button className="bg-gray-500 p-2 rounded-xl">
+                    Know More
+                  </button>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
+      <div className="absolute w-[290px] h-[100px] rounded-full bg-[#6783a8] top-[-90px] right-[-200px] z-[-9] blur-[200px]"></div>
+      <div className="absolute w-[290px] h-[100px] rounded-full bg-[#6783a8] top-[-90px] left-[-200px] z-[-9] blur-[200px]"></div>
     </div>
   );
 };
 
-export default EventCards;
+export default SectionWrapper(EventCards, "events");
