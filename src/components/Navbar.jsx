@@ -11,7 +11,7 @@ const Navbar = () => {
   useEffect(() => {
     if (isOpen) {
       const b = Baffle(".baffle", {
-        characters: "!@#$%^&*()",
+        characters: "!@#$%^&*()_+-=[]{};';<./>?QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm",
         speed: 100,
       });
       
