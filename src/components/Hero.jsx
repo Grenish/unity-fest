@@ -5,35 +5,36 @@ const MatrixRain = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    // Initializing the canvas
+    // Canvas
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
 
-    // Setting the width and height of the canvas
+    // Width and height of the canvas
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     // Setting up the letters
-    let letters = 'ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZ';
-    letters = letters.split('');
+    let letters =
+      "ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZ";
+    letters = letters.split("");
 
-    // Setting up the columns
+    // Columns
     const fontSize = 10;
     const columns = canvas.width / fontSize;
 
-    // Setting up the drops
+    // Drops
     const drops = Array.from({ length: columns }, () => 1);
 
-    // Setting up the draw function
+    // Draw function
     function draw() {
-      ctx.fillStyle = 'rgba(0, 0, 0, .1)';
+      ctx.fillStyle = "rgba(0, 0, 0, .1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       for (let i = 0; i < drops.length; i++) {
         const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillStyle = '#fff';
+        ctx.fillStyle = "#fff";
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
         drops[i]++;
-        if (drops[i] * fontSize > canvas.height && Math.random() > .95) {
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
           drops[i] = 0;
         }
       }
@@ -44,7 +45,6 @@ const MatrixRain = () => {
 
     // Clean up interval on component unmount
     return () => clearInterval(interval);
-
   }, []);
   return <canvas ref={canvasRef}></canvas>;
 };
@@ -83,19 +83,19 @@ const Hero = () => {
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-[100vh] sm:h-screen relative">
-      <div className="text-primaryFont font-pop font-medium text-xl">
+      <div className="text-primaryFont font-des font-medium text-2xl">
         Unity Fest Lets You
       </div>
       <div className="w-[70%] flex items-start justify-center mt-5 h-[20vh]">
         <div
           id="scrambleText"
           ref={elRef}
-          className="text-5xl sm:text-6xl font-bold text-primaryFont scramble-text"
+          className="text-5xl sm:text-6xl font-bold font-code scramble-text bg-clip-text text-transparent bg-gradient-to-tr from-indigo-500 to-rose-500"
         ></div>
       </div>
       <div className="absolute w-[950px] h-[200px] top-[-368px] z-[-9] bg-[#6783a8] blur-[200px] rounded-full"></div>
       <div className="absolute top-[-100px] z-[-9999] opacity-10 overflow-x-hidden">
-        <MatrixRain  />
+        <MatrixRain />
       </div>
     </div>
   );
