@@ -1,13 +1,22 @@
 import React from "react";
-import { EventCards, Events, Footer, Hero, MatrixRain, Navbar, } from "./components";
+import {
+  About,
+  EventCards,
+  Events,
+  Footer,
+  Hero,
+  Navbar,
+  Sponsores,
+} from "./components";
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <Hero />
-      {/* <MatrixRain /> */}
+      <About />
       <EventCards />
+      <Sponsores />
       <Footer />
     </div>
   );
