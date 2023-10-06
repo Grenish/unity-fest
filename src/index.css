@@ -1,9 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+*::-webkit-scrollbar{
+  height: 4px;
+  width: 4px;
+}
+*::-webkit-scrollbar:hover{
+  height: 5px;
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track{
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track:hover{
+  width: 4px;
+}
+
+*::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background-color: #bfc7d2;
+}
+
+*::-webkit-scrollbar-thumb:hover{
+  width: 5px;
+}
 
 body {
   background-color: #10151d;
@@ -20,9 +49,8 @@ body {
   font-family: "Source Code Pro", monospace;
 }
 
-.custom-hover:hover {
-  box-shadow: rgba(103, 131, 168, 0.12) 0px 2px 4px 0px,
-    rgba(103, 131, 168, 0.32) 0px 2px 16px 0px;
+.custom-hover{
+  
 }
 
 @keyframes fadeInDown {
