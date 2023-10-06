@@ -11,7 +11,9 @@ export default {
         blackPrimary: "#19262C"
       },
       fontFamily: {
-        pop: ["Poppins", "sans-serif"]
+        pop: ["Poppins", "sans-serif"],
+        code: ["Source Code Pro", "monospace"],
+        des: ["Pacifico", "cursive"]
       },
     },
   },
