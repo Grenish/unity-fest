@@ -34,10 +34,22 @@
   width: 5px;
 }
 
+*{
+  /* overflow-x: hidden; */
+  margin: 0;
+  padding: 0;
+}
+
+canvas{
+  display: block;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
 body {
   background-color: #10151d;
   color: #fff;
-  overflow-x: hidden;
 }
 
 .char-box {
