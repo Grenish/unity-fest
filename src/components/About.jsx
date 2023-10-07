@@ -41,17 +41,17 @@ const About = () => {
   }, [isVisible]);
 
   return (
-    <div className="h-screen px-3 sm:px-28">
-      <div className="flex justify-center items-center flex-col">
+    <div className="h-screen px-3 sm:px-10 lg:px-28">
+      <div className="flex justify-center items-center flex-col h-full">
         <motion.div
           variants={textVariant()}
-          className="text-5xl bg-gradient-to-tr from-rose-500 to-indigo-500 bg-clip-text font-des font-extrabold text-transparent"
+          className="text-2xl md:text-4xl lg:text-5xl  font-des font-extrabold text-primaryFont"
         >
           Who Are We?
         </motion.div>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="font-code mt-5 text-justify aboutAnim sm:text-center"
+          className="font-code mt-5 text-justify text-sm md:text-base lg:text-lg xl:text-xl aboutAnim text-primaryFont"
         ></motion.p>
       </div>
     </div>
