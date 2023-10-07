@@ -6,7 +6,7 @@ import {
   Footer,
   Hero,
   Navbar,
-  Sponsores,
+  Sponsors,
 } from "./components";
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
       <Hero />
       <About />
       <EventCards />
-      <Sponsores />
+      <Sponsors />
       <Footer />
     </div>
   );
