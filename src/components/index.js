@@ -5,6 +5,6 @@ import Hero from "./Hero";
 import MatrixRain from "./MatrixRain";
 import EventCards from "./EventCards";
 import About from "./About";
-import Sponsores from "./Sponsores";
+import Sponsors from "./Sponsors";
 
-export { Navbar, Footer, Events, Hero, MatrixRain, EventCards, About, Sponsores };
+export { Navbar, Footer, Events, Hero, MatrixRain, EventCards, About, Sponsors };
