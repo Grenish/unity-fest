@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import vite from "../assets/vite.svg";
 import { UilBars, UilMultiply } from "@iconscout/react-unicons";
@@ -8,50 +8,60 @@ const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
   const links = ["About", "Events", "Gallery", "Contact us"];
 
-  useEffect(() => {
-    if (isOpen) {
+  const toggleMenu = () => {
+    setOpen(!isOpen);
+
+    if (!isOpen) {
       const b = Baffle(".baffle", {
-        characters: "!@#$%^&*()_+-=[]{};';<./>?QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm",
+        characters:
+          "!@#$%^&*()_+-=[]{};'<./>?QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm",
         speed: 100,
       });
-      
+
       setTimeout(() => {
         b.start().reveal(800);
       }, 200);
     }
-  }, [isOpen]);
+  };
 
   return (
-    <header className="px-3 sm:px-28">
+    <header className="px-3 sm:px-28 absolute w-full z-[99999]">
       <nav className="flex items-center justify-between p-5 bg-transparent">
-        <div>
-          <Link to="/">
+        <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={vite} alt="Logo" className="w-16" />
           </Link>
         </div>
 
         <div className="md:hidden">
-          <button onClick={() => setOpen(!isOpen)} aria-label="Menu">
+          <button
+            onClick={toggleMenu}
+            aria-haspopup="true"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            aria-label="Menu"
+          >
             {isOpen ? <UilMultiply /> : <UilBars />}
           </button>
         </div>
 
         <div
-          className={`fixed right-0 top-0 h-full bg-blackPrimary z-20 w-3/4 md:w-1/2 lg:w-1/3 transform ease-in-out transition-transform duration-300 ${
+          id="mobile-menu"
+          className={`fixed right-0 top-0 h-full text-primaryFont bg-[#19262c7e] backdrop-blur-md z-20 w-3/4 md:w-1/2 lg:w-1/3 transform ease-in-out transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "translate-x-full"
           } md:translate-x-0 md:static md:h-auto md:bg-transparent`}
           aria-hidden={!isOpen}
         >
-          <div className="py-5 px-5 md:flex md:items-center md:justify-end md:space-x-8 md:py-0 md:px-10">
+          <div className="py-10 px-5 flex flex-col items-center justify-center space-y-5 md:flex-row md:items-center md:justify-end md:space-y-0 md:py-0 md:px-10">
             {links.map((link, i) => (
               <Link
                 key={i}
                 to={`/${link.toLowerCase()}`}
-                className="baffle block text-lg w-full text-center my-16 sm:my-0 hover:underline transition ease-in-out md:text-md md:w-auto"
+                className="baffle block mr-0 sm:mr-5 text-lg w-full text-center hover:underline transition ease-in-out md:text-md md:w-auto"
                 aria-label={link}
-                onClick={() => setOpen(false)}
+                onClick={toggleMenu}
               >
-                {link}
+                <span className="baffle">{link}</span>
               </Link>
             ))}
           </div>
@@ -61,7 +71,7 @@ const Navbar = () => {
         className={`fixed inset-0 opacity-30 z-10 md:hidden transition-opacity duration-300 ${
           isOpen ? "opacity-30 bg-black" : "opacity-0 pointer-events-none"
         }`}
-        onClick={() => setOpen(false)}
+        onClick={toggleMenu}
         aria-hidden={!isOpen}
       />
     </header>
