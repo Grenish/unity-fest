@@ -47,13 +47,11 @@ const EventCards = () => {
   ];
 
   return (
-    <div
-      className="relative"
-    >
+    <div className="relative">
       <div className="">
         <motion.div
           variants={textVariant()}
-          className="text-5xl font-des font-semibold px-9 sm:px-16 mb-4"
+          className="text-5xl font-des font-semibold px-9 sm:px-16 mb-4 text-primaryFont"
         >
           Events
         </motion.div>
@@ -65,7 +63,7 @@ const EventCards = () => {
             <motion.div
               key={events.id}
               className="custom-hover relative transition ease-in-out max-w-md mx-auto bg-blackPrimary rounded-xl shadow-md overflow-hidden md:max-w-2xl m-4"
-              variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+              variants={fadeIn("up", "spring", index * 0.1, 0.15)}
             >
               <div className="md:flex">
                 <div className="md:flex-shrink-0">
@@ -89,8 +87,8 @@ const EventCards = () => {
           ))}
         </motion.div>
       </div>
-      <div className="absolute w-[290px] h-[100px] rounded-full bg-[#6783a8] top-[-90px] right-[-200px] z-[-9] blur-[200px]"></div>
-      <div className="absolute w-[290px] h-[100px] rounded-full bg-[#6783a8] top-[-90px] left-[-200px] z-[-9] blur-[200px]"></div>
+      {/* <div className="absolute w-[290px] h-[100px] rounded-full bg-[#6783a8] top-[-90px] right-[-200px] z-[-9] blur-[200px] hidden md:block"></div> */}
+      {/* <div className="absolute w-[290px] h-[100px] rounded-full bg-[#6783a8] top-[-90px] left-[-200px] z-[-9] blur-[200px] hidden md:block"></div> */}
     </div>
   );
 };
