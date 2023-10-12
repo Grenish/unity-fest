@@ -47,7 +47,7 @@ const EventCards = () => {
   ];
 
   return (
-    <div className="relative">
+    <div className="relative h-auto xl:h-screen">
       <div className="">
         <motion.div
           variants={textVariant()}

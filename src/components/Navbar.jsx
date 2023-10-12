@@ -6,7 +6,12 @@ import Baffle from "baffle";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-  const links = ["About", "Events", "Gallery", "Contact us"];
+  const links = [
+    { name: "About", id: "about" },
+    { name: "Events", id: "events" },
+    { name: "Gallery", id: "gallery" },
+    { name: "Contact us", id: "contact" },
+  ];
 
   const toggleMenu = () => {
     setOpen(!isOpen);
@@ -25,7 +30,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="px-3 sm:px-28 absolute w-full z-[99999]">
+    <header className="px-3 xl:px-28 absolute w-full z-[99999]">
       <nav className="flex items-center justify-between p-5 bg-transparent">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
@@ -54,16 +59,16 @@ const Navbar = () => {
         >
           <div className="py-10 px-5 flex flex-col items-center justify-center space-y-5 md:flex-row md:items-center md:justify-end md:space-y-0 md:py-0 md:px-10">
             {links.map((link, i) => (
-              <Link
+              <li
                 key={i}
-                to={`/${link.toLowerCase()}`}
-                className="baffle block mr-0 sm:mr-5 text-lg w-full text-center hover:underline transition ease-in-out md:text-md md:w-auto"
-                aria-label={link}
-                onClick={toggleMenu}
+                className=" list-none mr-5 hover:text-white text-[18px] cursor-pointer"
               >
-                <span className="baffle">{link}</span>
-              </Link>
+                <a href={`#${link.id}`} onClick={toggleMenu}>
+                  {link.name}
+                </a>
+              </li>
             ))}
+            
           </div>
         </div>
       </nav>
