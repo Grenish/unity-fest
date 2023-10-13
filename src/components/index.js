@@ -6,8 +6,6 @@ import MatrixRain from "./MatrixRain";
 import EventCards from "./EventCards";
 import About from "./About";
 import Sponsors from "./Sponsors";
-import Discussion from "./Discussion";
-import DiscussButton from "./DiscussButton";
 
 export {
   Navbar,
@@ -18,6 +16,4 @@ export {
   EventCards,
   About,
   Sponsors,
-  Discussion,
-  DiscussButton,
 };
