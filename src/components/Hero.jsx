@@ -46,7 +46,7 @@ const MatrixRain = () => {
     // Clean up interval on component unmount
     return () => clearInterval(interval);
   }, []);
-  return <canvas ref={canvasRef} style={{ width: "100%", height: "100%" }} />;
+  return <canvas ref={canvasRef} />;
 };
 
 const Hero = () => {
@@ -90,7 +90,7 @@ const Hero = () => {
         <div
           id="scrambleText"
           ref={elRef}
-          className="text-5xl sm:px-0 px-5 sm:text-3xl md:text-4xl lg:text-6xl font-bold font-code scramble-text bg-clip-text text-transparent bg-gradient-to-tl from-indigo-500 to-rose-500"
+          className="text-5xl text-center sm:px-0 px-5 sm:text-3xl md:text-4xl lg:text-6xl font-bold font-code scramble-text bg-clip-text text-transparent bg-gradient-to-tl from-indigo-500 to-rose-500"
         ></div>
       </div>
       <div className="absolute w-[950px] h-[200px] top-[-368px] z-[-9] bg-[#6783a8] blur-[200px] rounded-full sm:w-[750px] md:w-[550px] lg:w-[350px] sm:top-[-300px] md:top-[-250px] lg:top-[-200px]"></div>
