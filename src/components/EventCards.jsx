@@ -78,7 +78,7 @@ const EventCards = () => {
                     {events.name}
                   </div>
                   <p className="mt-2 text-gray-500">{events.desc}</p>
-                  <button className="bg-gray-500 p-2 rounded-xl">
+                  <button className="bg-gray-500 p-2 rounded-xl mt-5">
                     Know More
                   </button>
                 </div>
